@@ -2,12 +2,10 @@ import { withPrefix } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
-import './all.sass'
-import Menu from './Menu'
-import useSiteMetadata from './SiteMetadata'
 import GlobalStyle from './GlobalStyle'
+import Sidebar from './Sidebar'
+import useSiteMetadata from './SiteMetadata'
 
-const ImageSection = styled.section``
 const ContentSection = styled.section``
 const LayoutWrapper = styled.div`
   display: flex;
@@ -29,6 +27,7 @@ const Layout = ({ children }) => {
         <link rel="icon" type="image/png" href={`${withPrefix('/')}img/favicon-32x32.png`} sizes="32x32" />
         <link rel="icon" type="image/png" href={`${withPrefix('/')}img/favicon-16x16.png`} sizes="16x16" />
         <link rel="mask-icon" href={`${withPrefix('/')}img/safari-pinned-tab.svg`} color="#ff4400" />
+        <link href="https://fonts.googleapis.com/css2?family=Jura&family=Quicksand&display=swap" rel="stylesheet"></link>
 
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
@@ -36,9 +35,8 @@ const Layout = ({ children }) => {
         <meta property="og:image" content={`${withPrefix('/')}img/og-image.jpg`} />
       </Helmet>
       <LayoutWrapper>
-        <Menu />
+        <Sidebar />
         <ContentSection>{children}</ContentSection>
-        <ImageSection />
       </LayoutWrapper>
       <GlobalStyle />
     </div>
