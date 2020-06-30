@@ -1,10 +1,19 @@
 import { withPrefix } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
+import styled from 'styled-components'
 import './all.sass'
+import Menu from './Menu'
 import useSiteMetadata from './SiteMetadata'
+import GlobalStyle from './GlobalStyle'
+
+const ImageSection = styled.section``
+const ContentSection = styled.section``
+const LayoutWrapper = styled.div`
+  display: flex;
+  height: 100vh;
+  width: 100%;
+`
 
 const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata()
@@ -26,9 +35,12 @@ const Layout = ({ children }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content={`${withPrefix('/')}img/og-image.jpg`} />
       </Helmet>
-      <Navbar />
-      <div>{children}</div>
-      <Footer />
+      <LayoutWrapper>
+        <Menu />
+        <ContentSection>{children}</ContentSection>
+        <ImageSection />
+      </LayoutWrapper>
+      <GlobalStyle />
     </div>
   )
 }
