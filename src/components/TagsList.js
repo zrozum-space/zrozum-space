@@ -40,7 +40,6 @@ const TagsListWrapper = styled.ul`
 
 const TagsList = ({ tags, fetched: isFetched }) => {
   const currentTags = isFetched ? tags : tags.map((tag) => ({ fieldValue: tag }))
-  console.log(currentTags)
 
   return (
     <TagsListWrapper>

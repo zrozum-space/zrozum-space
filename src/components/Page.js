@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const PageWrapper = styled.div`
   padding: 5rem 15rem;
   overflow-y: auto;
+  overflow-x: hidden;
 `
 
 const Page = ({ children }) => <PageWrapper>{children}</PageWrapper>
