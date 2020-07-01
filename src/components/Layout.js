@@ -9,6 +9,7 @@ import useSiteMetadata from './SiteMetadata'
 
 const LayoutWrapper = styled.div`
   display: flex;
+  height: 100vh;
 `
 
 const Layout = ({ children }) => {
