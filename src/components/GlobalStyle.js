@@ -12,6 +12,11 @@ const GlobalStyle = createGlobalStyle`
   --distincitveFont: 'Jura', sans-serif;
 }
 
+html{
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
 *,
 *::after,
 *::before {
@@ -22,12 +27,7 @@ const GlobalStyle = createGlobalStyle`
   text-rendering: optimizeLegibility;
 }
 
-html{
-  font-size: 62.5%;
-}
-
 body {
-  box-sizing: border-box;
   background-color: var(--backgroundColor);
   color: var(--textColor);
   font-family: var(--defaultFont);
@@ -35,6 +35,11 @@ body {
   line-height: var(--defaultLineHeight);
 }
 
+section.section-with-break {
+  border-top: 0.1rem solid rgba(0,0,0,0.1);
+  margin: 3rem 0;
+  padding: 3rem 0;
+}
 `
 
 export default GlobalStyle

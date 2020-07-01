@@ -6,8 +6,14 @@ featuredpost: false
 featuredimage: /img/staring-at-the-stars.svg
 description: The Coffee Taster’s Flavor Wheel, the official resource used by coffee tasters, has been revised for the first time this year.
 tags:
-  - flavor
-  - tasting
+  - astronomia
+  - astrofizyka
+  - fizyka
+  - ogólne
+  - test
+  - helko
+  - asdasd
+  - asdasdasd
 ---
 
 ![flavor wheel](/img/flavor_wheel.jpg)

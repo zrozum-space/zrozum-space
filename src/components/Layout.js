@@ -3,14 +3,12 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import GlobalStyle from './GlobalStyle'
+import Page from './Page'
 import Sidebar from './Sidebar'
 import useSiteMetadata from './SiteMetadata'
 
-const ContentSection = styled.section``
 const LayoutWrapper = styled.div`
   display: flex;
-  height: 100vh;
-  width: 100%;
 `
 
 const Layout = ({ children }) => {
@@ -36,7 +34,7 @@ const Layout = ({ children }) => {
       </Helmet>
       <LayoutWrapper>
         <Sidebar />
-        <ContentSection>{children}</ContentSection>
+        <Page>{children}</Page>
       </LayoutWrapper>
       <GlobalStyle />
     </div>
