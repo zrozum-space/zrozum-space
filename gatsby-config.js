@@ -7,6 +7,8 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -28,12 +30,10 @@ module.exports = {
         name: 'images',
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        gfm: true,
+        // gfm: true,
         plugins: [
           {
             resolve: 'gatsby-remark-relative-images',
@@ -41,11 +41,11 @@ module.exports = {
           },
           {
             resolve: 'gatsby-remark-images',
-            options: { maxWidth: 2048 },
-          },
-          {
-            resolve: 'gatsby-remark-copy-linked-files',
-            options: { destinationDir: 'static' },
+            options: {
+              maxWidth: 800,
+              linkImagesToOriginal: true,
+              showCaptions: true,
+            },
           },
         ],
       },

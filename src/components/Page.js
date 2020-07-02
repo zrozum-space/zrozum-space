@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const PageWrapper = styled.div`
-  padding: 5rem 15rem;
+  padding: 5rem 20rem;
   overflow-y: auto;
   overflow-x: hidden;
 `

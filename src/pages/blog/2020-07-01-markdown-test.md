@@ -2,8 +2,6 @@
 templateKey: blog-post
 title: Test of markdown
 date: 2020-07-01T15:04:10.000Z
-featuredpost: false
-featuredimage: /img/staring-at-the-stars.svg
 description: The Coffee Taster’s Flavor Wheel, the official resource used by coffee tasters, has been revised for the first time this year.
 tags:
   - ogólne
@@ -257,11 +255,11 @@ Tables aren't part of the core Markdown spec, but they are part of GFM and _Mark
 ```no-highlight
 Colons can be used to align columns.
 
-| Tables        | Are           | Cool  |
+| Tables        |      Are      |  Cool |
 | ------------- | :-----------: | ----: |
 | col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      | $12   |
-| zebra stripes | are neat      | $1    |
+| col 2 is      |   centered    |   $12 |
+| zebra stripes |   are neat    |    $1 |
 
 The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.
 

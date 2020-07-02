@@ -5,10 +5,14 @@ const Wrapper = styled.div`
   span.separator {
     display: block;
     border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+
+    &:last-of-type {
+      margin-bottom: 5rem;
+    }
   }
 
   h1 {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   h3 {
@@ -22,9 +26,9 @@ const PageHeader = ({ title, description }) => (
     <h1>{title}</h1>
     {description && (
       <>
-        <span class="separator"></span>
-        <h3>{description}</h3>
-        <span class="separator"></span>
+        <span className="separator"></span>
+        <p>{description}</p>
+        <span className="separator"></span>
       </>
     )}
   </Wrapper>

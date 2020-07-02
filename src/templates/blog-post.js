@@ -5,6 +5,7 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import TagsList from '../components/TagsList'
+import PageHeader from '../components/PageHeader'
 
 export const BlogPostTemplate = ({ content, contentComponent, description, tags, title, helmet }) => {
   const PostContent = contentComponent || Content
@@ -12,8 +13,7 @@ export const BlogPostTemplate = ({ content, contentComponent, description, tags,
   return (
     <>
       {helmet || ''}
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <PageHeader title={title} description={description} />
       <PostContent content={content} />
       {tags && tags.length > 0 && (
         <section className="section-with-break">
@@ -34,7 +34,7 @@ const BlogPost = ({ data }) => {
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
-          <Helmet titleTemplate="%s | zrozum.space">
+          <Helmet titleTemplate={`%s | ${data.site.siteMetadata.title}`}>
             <title>{`${post.frontmatter.title}`}</title>
             <meta name="description" content={`${post.frontmatter.description}`} />
           </Helmet>
@@ -50,6 +50,11 @@ export default BlogPost
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     markdownRemark(id: { eq: $id }) {
       id
       html
