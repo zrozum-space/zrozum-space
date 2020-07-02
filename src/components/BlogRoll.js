@@ -9,7 +9,7 @@ const BlogRollWrapper = styled.div`
   }
 
   .date {
-    font-family: var(--distincitveFont);
+    font-family: var(--distinctiveFont);
   }
 
   &:not(:first-of-type) {

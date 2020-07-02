@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     margin-bottom: 2rem;
   }
 
-  h3 {
+  p {
     padding: 2.5rem 0;
     font-weight: normal;
   }

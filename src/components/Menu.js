@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 
 const MenuWrapper = styled.ul`
   list-style: none;
-  font-family: var(--distincitveFont);
+  font-family: var(--distinctiveFont);
   font-size: 2.2rem;
   text-transform: uppercase;
 

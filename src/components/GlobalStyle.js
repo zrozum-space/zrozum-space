@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
   --defaultFont: 'Quicksand', serif;
   --defaultFontSize: 1.7rem;
   --defaultLineHeight: 1.6;
-  --distincitveFont: 'Jura', sans-serif;
+  --distinctiveFont: 'Jura', sans-serif;
 }
 
 html{
