@@ -63,6 +63,52 @@ const PageWrapper = styled.div`
       content: counter(thirdLevelHeadings) '.';
     }
   }
+
+  table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  table caption {
+    font-size: 1.5em;
+    margin: 0.5em 0 0.75em;
+  }
+
+  table tr {
+    background-color: #e5e9f0;
+    border: 1px solid #d8dee9;
+    padding: 0.35em;
+  }
+
+  table th,
+  table td {
+    padding: 0.625em;
+  }
+
+  table th {
+    background-color: #d8dee9;
+    font-size: 0.85em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  iframe {
+    display: table;
+    margin: 3rem auto;
+  }
+
+  a {
+    text-decoration: none;
+    color: #5e81ac;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `
 
 const Page = ({ children }) => <PageWrapper>{children}</PageWrapper>

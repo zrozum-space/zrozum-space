@@ -42,7 +42,7 @@ const TagsList = ({ tags, fetched: isFetched }) => {
   const currentTags = isFetched ? tags : tags.map((tag) => ({ fieldValue: tag }))
 
   return (
-    <TagsListWrapper>
+    <TagsListWrapper className="tags-list">
       {currentTags.map((tag) => (
         <li key={tag.fieldValue}>
           <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>

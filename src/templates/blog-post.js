@@ -6,12 +6,19 @@ import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import TagsList from '../components/TagsList'
 import PageHeader from '../components/PageHeader'
+import styled from 'styled-components'
+
+const BlogPostWrapper = styled.div`
+  ul:not(.tags-list) {
+    list-style: circle inside;
+  }
+`
 
 export const BlogPostTemplate = ({ content, contentComponent, description, tags, title, helmet }) => {
   const PostContent = contentComponent || Content
 
   return (
-    <>
+    <BlogPostWrapper>
       {helmet || ''}
       <PageHeader title={title} description={description} />
       <PostContent content={content} />
@@ -20,7 +27,7 @@ export const BlogPostTemplate = ({ content, contentComponent, description, tags,
           <TagsList tags={tags} />
         </section>
       )}
-    </>
+    </BlogPostWrapper>
   )
 }
 
