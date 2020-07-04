@@ -9,6 +9,10 @@ const TagsListWrapper = styled.ul`
   width: 100%;
   list-style: none;
 
+  @media (max-width: 77.8125em) {
+    justify-content: center;
+  }
+
   & > * {
     margin-right: 2rem;
   }

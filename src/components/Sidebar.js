@@ -8,8 +8,14 @@ const SidebarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--sidebarColor);
-  padding: 10rem;
-  width: 50rem;
+  padding: 8rem;
+  width: 30%;
+
+  @media (max-width: 77.8125em) {
+    padding: 8rem 3rem;
+    width: 100%;
+    align-items: center;
+  }
 
   h1 {
     text-transform: uppercase;
@@ -22,6 +28,10 @@ const SidebarWrapper = styled.div`
 
   img {
     width: 40rem;
+
+    @media (max-width: 77.8125em) {
+      width: 100%;
+    }
   }
 
   & > * {

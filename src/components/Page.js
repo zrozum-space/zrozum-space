@@ -2,10 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 
 const PageWrapper = styled.div`
-  padding: 5rem 20rem;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+
+  padding: 5rem 18rem;
   overflow-y: auto;
   overflow-x: hidden;
   counter-reset: firstLevelHeadings;
+
+  @media (max-width: 77.8125em) {
+    padding: 0 4rem;
+    width: 100%;
+  }
 
   .gatsby-resp-image-figure {
     margin: 2rem 0;
@@ -99,6 +108,11 @@ const PageWrapper = styled.div`
   iframe {
     display: table;
     margin: 3rem auto;
+    width: 56rem;
+
+    @media (max-width: 37.5em) {
+      width: 100% !important;
+    }
   }
 
   a {

@@ -10,6 +10,11 @@ import useSiteMetadata from './SiteMetadata'
 const LayoutWrapper = styled.div`
   display: flex;
   height: 100vh;
+
+  @media (max-width: 77.8125em) {
+    flex-direction: column;
+    height: 100%;
+  }
 `
 
 const Layout = ({ children }) => {
