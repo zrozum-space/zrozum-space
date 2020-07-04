@@ -1,12 +1,11 @@
+import { graphql } from 'gatsby'
 import React from 'react'
-import { kebabCase } from 'lodash'
 import { Helmet } from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
-import TagsList from '../components/TagsList'
-import PageHeader from '../components/PageHeader'
 import styled from 'styled-components'
+import Content, { HTMLContent } from '../components/Content'
+import Layout from '../components/Layout'
+import PageHeader from '../components/PageHeader'
+import TagsList from '../components/TagsList'
 
 const BlogPostWrapper = styled.div`
   ul:not(.tags-list) {

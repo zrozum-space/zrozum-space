@@ -1,16 +1,15 @@
+import { graphql } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Link, graphql } from 'gatsby'
+import BlogRoll from '../components/BlogRoll'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
-import BlogRoll from '../components/BlogRoll'
 
 class TagRoute extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges
     const tag = this.props.pageContext.tag
     const title = this.props.data.site.siteMetadata.title
-    const totalCount = this.props.data.allMarkdownRemark.totalCount
 
     return (
       <Layout>
