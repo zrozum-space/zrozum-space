@@ -35,6 +35,7 @@ module.exports = {
       options: {
         // gfm: true,
         plugins: [
+          { resolve: `gatsby-remark-autolink-headers`, options: {className: 'reference-button'} },
           {
             resolve: 'gatsby-remark-relative-images',
             options: { name: 'uploads' },

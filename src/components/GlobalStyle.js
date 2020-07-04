@@ -40,6 +40,10 @@ section.section-with-break {
   margin: 3rem 0;
   padding: 3rem 0;
 }
+
+.reference-button.before {
+  padding-right: 1rem;
+}
 `
 
 export default GlobalStyle
