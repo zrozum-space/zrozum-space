@@ -1,57 +1,34 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import { Helmet } from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
+import TagsList from '../components/TagsList'
+import PageHeader from '../components/PageHeader'
+import styled from 'styled-components'
 
-export const BlogPostTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
-  title,
-  helmet,
-}) => {
+const BlogPostWrapper = styled.div`
+  ul:not(.tags-list) {
+    list-style: circle inside;
+  }
+`
+
+export const BlogPostTemplate = ({ content, contentComponent, description, tags, title, helmet }) => {
   const PostContent = contentComponent || Content
 
   return (
-    <section className="section">
+    <BlogPostWrapper>
       {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map((tag) => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
-      </div>
-    </section>
+      <PageHeader title={title} description={description} />
+      <PostContent content={content} />
+      {tags && tags.length > 0 && (
+        <section className="section-with-break">
+          <TagsList tags={tags} />
+        </section>
+      )}
+    </BlogPostWrapper>
   )
-}
-
-BlogPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
 }
 
 const BlogPost = ({ data }) => {
@@ -64,12 +41,9 @@ const BlogPost = ({ data }) => {
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
-          <Helmet titleTemplate="%s | Blog">
+          <Helmet titleTemplate={`%s | ${data.site.siteMetadata.title}`}>
             <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
+            <meta name="description" content={`${post.frontmatter.description}`} />
           </Helmet>
         }
         tags={post.frontmatter.tags}
@@ -79,16 +53,15 @@ const BlogPost = ({ data }) => {
   )
 }
 
-BlogPost.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-}
-
 export default BlogPost
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     markdownRemark(id: { eq: $id }) {
       id
       html
