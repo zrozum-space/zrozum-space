@@ -1,8 +1,8 @@
 import { StaticQuery } from 'gatsby'
 import React from 'react'
-import BlogList from '../../components/BlogList'
-import Layout from '../../components/Layout'
-import PageHeader from '../../components/PageHeader'
+import BlogList from '../components/BlogList'
+import Layout from '../components/Layout'
+import PageHeader from '../components/PageHeader'
 
 const ArticlesPage = () => {
   return (
@@ -10,7 +10,7 @@ const ArticlesPage = () => {
       <PageHeader title="Wszystkie artykuły" />
       <StaticQuery
         query={graphql`
-          query BlogRollQuery {
+          query ArticlesQuery {
             allMarkdownRemark(
               sort: { order: DESC, fields: [frontmatter___date] }
               filter: { frontmatter: { templateKey: { eq: "blog-post" } } }

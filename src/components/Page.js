@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   counter-reset: firstLevelHeadings;
 
   @media (max-width: 77.8125em) {
-    padding: 0 4rem;
+    padding: 0 4rem 5rem 4rem;
     width: 100%;
   }
 
