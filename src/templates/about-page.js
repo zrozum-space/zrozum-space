@@ -1,39 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import React from 'react'
 import Content, { HTMLContent } from '../components/Content'
+import Layout from '../components/Layout'
+import PageHeader from '../components/PageHeader'
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
     <>
-      <h2>{title}</h2>
+      <PageHeader title={title} />
       <PageContent className="content" content={content} />
     </>
   )
 }
 
-AboutPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
-}
-
-const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data
-
-  return (
-    <Layout>
-      <AboutPageTemplate contentComponent={HTMLContent} title={post.frontmatter.title} content={post.html} />
-    </Layout>
-  )
-}
-
-AboutPage.propTypes = {
-  data: PropTypes.object.isRequired,
-}
+const AboutPage = ({
+  data: {
+    markdownRemark: { frontmatter, html },
+  },
+}) => (
+  <Layout>
+    <AboutPageTemplate contentComponent={HTMLContent} title={frontmatter.title} content={html} />
+  </Layout>
+)
 
 export default AboutPage
 

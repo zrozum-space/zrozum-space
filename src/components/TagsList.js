@@ -3,7 +3,7 @@ import { kebabCase } from 'lodash'
 import React from 'react'
 import styled from 'styled-components'
 
-const TagsListWrapper = styled.ul`
+const Wrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -46,7 +46,7 @@ const TagsList = ({ tags, fetched: isFetched }) => {
   const currentTags = isFetched ? tags : tags.map((tag) => ({ fieldValue: tag }))
 
   return (
-    <TagsListWrapper className="tags-list">
+    <Wrapper className="tags-list">
       {currentTags.map((tag) => (
         <li key={tag.fieldValue}>
           <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
@@ -54,7 +54,7 @@ const TagsList = ({ tags, fetched: isFetched }) => {
           </Link>
         </li>
       ))}
-    </TagsListWrapper>
+    </Wrapper>
   )
 }
 

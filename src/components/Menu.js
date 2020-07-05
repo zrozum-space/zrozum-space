@@ -1,12 +1,10 @@
+import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 
 const MenuWrapper = styled.ul`
   list-style: none;
-  font-family: var(--distinctiveFont);
   font-size: 2.2rem;
-  text-transform: uppercase;
 
   a {
     color: #2e3440;
@@ -25,6 +23,9 @@ const Menu = () => (
     </li>
     <li>
       <Link to="/about">O stronie</Link>
+    </li>
+    <li>
+      <Link to="/readings">Książki</Link>
     </li>
     <li>
       <Link to="/colophon">Kolofon</Link>

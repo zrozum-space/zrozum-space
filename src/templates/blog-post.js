@@ -30,27 +30,29 @@ export const BlogPostTemplate = ({ content, contentComponent, description, tags,
   )
 }
 
-const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
-
-  return (
-    <Layout>
-      <BlogPostTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
-        helmet={
-          <Helmet titleTemplate={`%s | ${data.site.siteMetadata.title}`}>
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta name="description" content={`${post.frontmatter.description}`} />
-          </Helmet>
-        }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
-      />
-    </Layout>
-  )
-}
+const BlogPost = ({
+  data: {
+    markdownRemark: { html, frontmatter },
+    site,
+  },
+}) => (
+  <Layout>
+    <BlogPostTemplate
+      content={html}
+      contentComponent={HTMLContent}
+      description={frontmatter.description}
+      helmet={
+        <Helmet titleTemplate={`%s | ${site.siteMetadata.title}`}>
+          <title>{`${frontmatter.title}`}</title>
+          <meta name="description" content={`${frontmatter.description}`} />
+          {/* todo og for blog post */}
+        </Helmet>
+      }
+      tags={frontmatter.tags}
+      title={frontmatter.title}
+    />
+  </Layout>
+)
 
 export default BlogPost
 
