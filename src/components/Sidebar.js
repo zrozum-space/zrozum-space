@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import TagsList from './TagsList'
-import Menu from './Menu'
 import logo from '../img/staring-at-the-stars.svg'
+import Menu from './Menu'
+import TagsList from './TagsList'
 
-const SidebarWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--sidebarColor);
@@ -40,7 +40,7 @@ const SidebarWrapper = styled.div`
 `
 
 const Sidebar = () => (
-  <SidebarWrapper>
+  <Wrapper>
     <div>
       <img src={logo} alt="Zrozum.space illustration"></img>
       <h1>Zrozum.Space</h1>
@@ -48,7 +48,7 @@ const Sidebar = () => (
     </div>
     <Menu />
     <TagsList />
-  </SidebarWrapper>
+  </Wrapper>
 )
 
 export default Sidebar

@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const PageWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 5rem 18rem;
   width: 70%;
 
-  padding: 5rem 18rem;
   overflow-y: auto;
   overflow-x: hidden;
   counter-reset: firstLevelHeadings;
 
   @media (max-width: 77.8125em) {
-    padding: 0 4rem;
+    padding: 0 4rem 5rem 4rem;
     width: 100%;
   }
 
@@ -74,7 +74,7 @@ const PageWrapper = styled.div`
   }
 
   table {
-    border: 1px solid #ccc;
+    border: 0.1rem solid #ccc;
     border-collapse: collapse;
     margin: auto;
     padding: 0;
@@ -83,25 +83,24 @@ const PageWrapper = styled.div`
   }
 
   table caption {
-    font-size: 1.5em;
-    margin: 0.5em 0 0.75em;
+    margin: 1.2rem 0 0.8rem;
   }
 
   table tr {
     background-color: #e5e9f0;
-    border: 1px solid #d8dee9;
-    padding: 0.35em;
+    border: 0.1rem solid #d8dee9;
+    padding: 0.56rem;
   }
 
   table th,
   table td {
-    padding: 0.625em;
+    padding: 1rem;
   }
 
   table th {
     background-color: #d8dee9;
-    font-size: 0.85em;
-    letter-spacing: 0.1em;
+    font-size: 1.36rem;
+    letter-spacing: 0.16rem;
     text-transform: uppercase;
   }
 
@@ -123,8 +122,22 @@ const PageWrapper = styled.div`
       text-decoration: underline;
     }
   }
+
+  .book-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 18rem;
+    height: 36rem;
+    font-size: 1.5rem;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
 `
 
-const Page = ({ children }) => <PageWrapper>{children}</PageWrapper>
+const Page = ({ children }) => <Wrapper>{children}</Wrapper>
 
 export default Page

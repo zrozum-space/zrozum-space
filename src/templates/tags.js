@@ -1,28 +1,27 @@
+import { graphql } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
-import BlogRoll from '../components/BlogRoll'
+import BlogList from '../components/BlogList'
 
-class TagRoute extends React.Component {
-  render() {
-    const posts = this.props.data.allMarkdownRemark.edges
-    const tag = this.props.pageContext.tag
-    const title = this.props.data.site.siteMetadata.title
-    const totalCount = this.props.data.allMarkdownRemark.totalCount
+const TagsTemplate = ({
+  data: {
+    allMarkdownRemark: { edges: posts },
+    site: {
+      siteMetadata: { title },
+    },
+  },
+  pageContext: { tag },
+}) => (
+  <Layout>
+    <Helmet title={`${tag} | ${title}`} />
+    <PageHeader title={`Artykuły #${tag}`} />
+    <BlogList posts={posts} />
+  </Layout>
+)
 
-    return (
-      <Layout>
-        <Helmet title={`${tag} | ${title}`} />
-        <PageHeader title={`Artykuły #${tag}`} />
-        <BlogRoll posts={posts} />
-      </Layout>
-    )
-  }
-}
-
-export default TagRoute
+export default TagsTemplate
 
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {
