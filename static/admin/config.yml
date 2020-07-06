@@ -1,6 +1,6 @@
 backend:
-  name: git-gateway
-  branch: master
+  name: 'git-gateway'
+  branch: 'master'
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
@@ -8,15 +8,17 @@ backend:
     uploadMedia: '[skip ci] Upload “{{path}}”'
     deleteMedia: '[skip ci] Delete “{{path}}”'
 
-media_folder: static/img
-public_folder: /img
+media_folder: 'static/img'
+public_folder: '/img'
 
 collections:
-  - name: 'articles'
+  - name: 'article'
     label: 'Articles'
     folder: 'src/pages/articles'
     create: true
+    delete: true
     slug: '{{year}}-{{month}}-{{day}}/{{slug}}'
+    extension: 'md'
     media_folder: ''
     public_folder: ''
     fields:
@@ -26,10 +28,12 @@ collections:
       - { label: 'Opis', name: 'description', widget: 'text' }
       - { label: 'Zawartość artykułu', name: 'body', widget: 'markdown' }
       - { label: 'Tagi', name: 'tags', widget: 'list' }
-  - name: 'readings'
-    label: 'Readings'
-    folder: 'src/pages/readings'
-    slug: 'index'
-    fields:
-      - { label: 'Tytuł', name: 'title', widget: 'string' }
-      - { label: 'Zawartość', name: 'body', widget: 'markdown' }
+  - name: 'pages'
+    label: 'Strony'
+    files:
+      - name: 'home'
+        label: 'Home'
+        file: 'src/pages/readings/index.md'
+        fields:
+          - { label: 'Tytuł', name: 'title', widget: 'string' }
+          - { label: 'Zawartość', name: 'body', widget: 'markdown' }
