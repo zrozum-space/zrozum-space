@@ -8,5 +8,5 @@ import ReadingsPreview from './preview-templates/ReadingsPreview'
 CMS.registerMediaLibrary(uploadcare)
 CMS.registerMediaLibrary(cloudinary)
 
-CMS.registerPreviewTemplate('articles', BlogPostPreview)
-CMS.registerPreviewTemplate('readings', ReadingsPreview)
+CMS.registerPreviewTemplate('article', BlogPostPreview)
+CMS.registerPreviewTemplate('reading', ReadingsPreview)

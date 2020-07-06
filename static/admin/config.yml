@@ -17,7 +17,8 @@ collections:
     folder: 'src/pages/articles'
     create: true
     delete: true
-    slug: '{{year}}-{{month}}-{{day}}/{{slug}}'
+    slug: 'index'
+    path: '{{title}}/index'
     extension: 'md'
     media_folder: ''
     public_folder: ''
@@ -31,8 +32,8 @@ collections:
   - name: 'pages'
     label: 'Strony'
     files:
-      - name: 'home'
-        label: 'Home'
+      - name: 'reading'
+        label: 'Readings'
         file: 'src/pages/readings/index.md'
         fields:
           - { label: 'Tytuł', name: 'title', widget: 'string' }
