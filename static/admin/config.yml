@@ -8,6 +8,7 @@ backend:
     uploadMedia: '[skip ci] Upload “{{path}}”'
     deleteMedia: '[skip ci] Delete “{{path}}”'
 
+local_backend: true
 media_folder: static/img
 public_folder: /img
 
@@ -24,13 +25,12 @@ collections:
       - { label: 'Tytuł', name: 'title', widget: 'string' }
       - { label: 'Data publikacji', name: 'date', widget: 'datetime' }
       - { label: 'Opis', name: 'description', widget: 'text' }
-      - { label: 'Post', name: 'body', widget: 'markdown' }
-      - { label: 'Grafiki', name: 'images', widget: 'image', media_library: { config: { multiple: true } } }
+      - { label: 'Zawartość artykułu', name: 'body', widget: 'markdown' }
       - { label: 'Tagi', name: 'tags', widget: 'list' }
   - name: 'readings'
     label: 'Readings'
     folder: 'src/pages/readings'
     slug: 'index'
     fields:
-      - { label: 'Grafiki', name: 'images', widget: 'image', media_library: { config: { multiple: true } } }
-      - { label: 'Content', name: 'body', widget: 'markdown' }
+      - { label: 'Tytuł', name: 'title', widget: 'string' }
+      - { label: 'Zawartość', name: 'body', widget: 'markdown' }
