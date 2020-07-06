@@ -122,6 +122,20 @@ const Wrapper = styled.div`
       text-decoration: underline;
     }
   }
+
+  .book-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 18rem;
+    height: 36rem;
+    font-size: 1.5rem;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
 `
 
 const Page = ({ children }) => <Wrapper>{children}</Wrapper>

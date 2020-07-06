@@ -4,7 +4,7 @@ import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
+export const PlainPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -15,20 +15,20 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   )
 }
 
-const AboutPage = ({
+const PlainPage = ({
   data: {
     markdownRemark: { frontmatter, html },
   },
 }) => (
   <Layout>
-    <AboutPageTemplate contentComponent={HTMLContent} title={frontmatter.title} content={html} />
+    <PlainPageTemplate contentComponent={HTMLContent} title={frontmatter.title} content={html} />
   </Layout>
 )
 
-export default AboutPage
+export default PlainPage
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
+export const plainPageQuery = graphql`
+  query PlainPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
