@@ -25,22 +25,12 @@ collections:
       - { label: 'Data publikacji', name: 'date', widget: 'datetime' }
       - { label: 'Opis', name: 'description', widget: 'text' }
       - { label: 'Post', name: 'body', widget: 'markdown' }
-      - label: 'Grafiki',
-        name: 'images', 
-        widget: 'image', 
-        media_library: 
-          config: 
-            multiple: true 
+      - { label: 'Grafiki', name: 'images', widget: 'image', media_library: { config: { multiple: true } } }
       - { label: 'Tagi', name: 'tags', widget: 'list' }
   - name: 'readings'
     label: 'Readings'
     folder: 'src/pages/readings'
     slug: 'index'
     fields:
-      - label: 'Grafiki',
-        name: 'images', 
-        widget: 'image', 
-        media_library: 
-          config: 
-            multiple: true 
+      - { label: 'Grafiki', name: 'images', widget: 'image', media_library: { config: { multiple: true } } }
       - { label: 'Content', name: 'body', widget: 'markdown' }
