@@ -6,6 +6,7 @@ import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import TagsList from '../components/TagsList'
+import ReactionsWidget from '../components/ReactionsWidget'
 
 const BlogPostWrapper = styled.div`
   ul:not(.tags-list) {
@@ -19,6 +20,7 @@ export const BlogPostTemplate = ({ content, contentComponent, description, tags,
   return (
     <BlogPostWrapper>
       {helmet || ''}
+      <ReactionsWidget />
       <PageHeader title={title} description={description} />
       <PostContent content={content} />
       {tags && tags.length > 0 && (
