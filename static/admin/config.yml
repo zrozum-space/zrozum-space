@@ -34,7 +34,20 @@ collections:
     files:
       - name: 'reading'
         label: 'Readings'
-        file: 'src/pages/readings/index.md'
+        file: 'src/pages/readings/recommended-books.json'
+        extension: 'json'
+        format: 'json'
+        media_folder: ''
+        public_folder: ''
         fields:
-          - { label: 'Tytuł', name: 'title', widget: 'string' }
-          - { label: 'Zawartość', name: 'body', widget: 'markdown' }
+          - {
+              label: 'Books',
+              name: 'books',
+              widget: 'list',
+              fields:
+                [
+                  { label: 'Nazwa', name: 'name', widget: 'string' },
+                  { label: 'Link', name: 'link', widget: 'string' },
+                  { label: 'Zdjęcie', name: 'image', widget: 'image' },
+                ],
+            }
