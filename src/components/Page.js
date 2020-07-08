@@ -126,14 +126,16 @@ const Wrapper = styled.div`
   .book-item {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 18rem;
+    width: 15rem;
     height: 36rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    margin: 2.5rem;
+    overflow: hidden;
 
     img {
       width: 100%;
       object-fit: cover;
+      margin-bottom: 2rem;
     }
   }
 `
