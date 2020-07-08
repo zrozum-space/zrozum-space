@@ -14,13 +14,13 @@ const BlogPostWrapper = styled.div`
   }
 `
 
-export const BlogPostTemplate = ({ content, contentComponent, description, tags, title, helmet }) => {
+export const BlogPostTemplate = ({ id, content, contentComponent, description, tags, title, helmet }) => {
   const PostContent = contentComponent || Content
 
   return (
     <BlogPostWrapper>
       {helmet || ''}
-      <ReactionsWidget />
+      <ReactionsWidget postId={id} />
       <PageHeader title={title} description={description} />
       <PostContent content={content} />
       {tags && tags.length > 0 && (
@@ -34,12 +34,13 @@ export const BlogPostTemplate = ({ content, contentComponent, description, tags,
 
 const BlogPost = ({
   data: {
-    markdownRemark: { html, frontmatter },
+    markdownRemark: { id, html, frontmatter },
     site,
   },
 }) => (
   <Layout>
     <BlogPostTemplate
+      id={id}
       content={html}
       contentComponent={HTMLContent}
       description={frontmatter.description}
