@@ -16,18 +16,18 @@ const EMOTICONS = [
   },
 ]
 
-const ReactionsWidget = ({ postId }) => {
+const ReactionsWidget = ({ postCreationDate }) => {
   const [givenReactionsCount, setGivenReactionsCount] = useState({ love: 0, hurray: 0, fire: 0 })
   const [activeItem, setActiveItem] = useState(null)
 
   useEffect(() => {
-    fetch({ url: `${process.env.GATSBY_API_URL}/zrozum-space/reactions/${postId}`, method: 'get' })
+    fetch(`${process.env.GATSBY_API_URL}/reactions/${postCreationDate}`)
       .then((res) => res.json())
       .then(({ reactions, userReaction }) => {
         setActiveItem(userReaction)
         setGivenReactionsCount(reactions)
       })
-  }, [postId])
+  }, [postCreationDate])
 
   return (
     <Wrapper>
@@ -36,10 +36,15 @@ const ReactionsWidget = ({ postId }) => {
           key={item.name}
           active={item.name === activeItem}
           onClick={() => {
-            if (!activeItem) {
-              setGivenReactionsCount((prevState) => ({ ...prevState, [item.name]: prevState[item.name] + 1 }))
-              setActiveItem(item.name)
-            }
+            fetch(`${process.env.GATSBY_API_URL}/reactions/${postCreationDate}`, {
+              method: 'post',
+              body: JSON.stringify({ reaction: item.name }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            })
+            setGivenReactionsCount((prevState) => ({ ...prevState, [item.name]: prevState[item.name] + 1 }))
+            setActiveItem(item.name)
           }}
         >
           {item.emote} <span>{givenReactionsCount[item.name]}</span>
@@ -105,6 +110,7 @@ const Reaction = styled.div`
     display: inline-block;
     padding: 0.25rem 0.75rem;
     font-size: 1.2rem;
+    font-family: var(--distinctiveFont);
   }
 `
 
