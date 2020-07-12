@@ -10,7 +10,7 @@ const Readings = () => {
       <PageHeader title="Polecane książki" />
       <Flex flexWrap="wrap">
         {recommendedBooks.books.map((book) => (
-          <article className="book-item">
+          <article key={book.name} className="book-item">
             <img src={require(`./${book.image}`)} alt={book.name} />
             <a href={book.link}>{book.name}</a>
           </article>
