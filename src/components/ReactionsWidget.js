@@ -36,6 +36,11 @@ const ReactionsWidget = ({ postCreationDate }) => {
           key={item.name}
           active={item.name === activeItem}
           onClick={() => {
+            if (item.name === activeItem) {
+              return
+            }
+            const oldActiveItem = activeItem
+
             fetch(`${process.env.GATSBY_API_URL}/reactions/${postCreationDate}`, {
               method: 'post',
               body: JSON.stringify({ reaction: item.name }),
@@ -43,7 +48,11 @@ const ReactionsWidget = ({ postCreationDate }) => {
                 'Content-Type': 'application/json',
               },
             })
-            setGivenReactionsCount((prevState) => ({ ...prevState, [item.name]: prevState[item.name] + 1 }))
+            setGivenReactionsCount((prevState) => ({
+              ...prevState,
+              [oldActiveItem]: (prevState[oldActiveItem] -= 1),
+              [item.name]: prevState[item.name] + 1,
+            }))
             setActiveItem(item.name)
           }}
         >
