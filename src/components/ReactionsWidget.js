@@ -21,7 +21,7 @@ const ReactionsWidget = ({ postCreationDate }) => {
   const [activeItem, setActiveItem] = useState(null)
 
   useEffect(() => {
-    fetch(`${process.env.GATSBY_API_URL}/reactions/${postCreationDate}`)
+    fetch(`${process.env.GATSBY_API_URL}/reactions/${postCreationDate}`, { headers: { Origin: process.env.GATSBY_ORIGIN } })
       .then((res) => res.json())
       .then(({ reactions, userReaction }) => {
         setActiveItem(userReaction)
