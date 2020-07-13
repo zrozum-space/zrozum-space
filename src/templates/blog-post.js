@@ -6,6 +6,7 @@ import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import TagsList from '../components/TagsList'
+import ReactionsWidget from '../components/ReactionsWidget'
 
 const BlogPostWrapper = styled.div`
   ul:not(.tags-list) {
@@ -13,12 +14,13 @@ const BlogPostWrapper = styled.div`
   }
 `
 
-export const BlogPostTemplate = ({ content, contentComponent, description, tags, title, helmet }) => {
+export const BlogPostTemplate = ({ id, date, content, contentComponent, description, tags, title, helmet }) => {
   const PostContent = contentComponent || Content
 
   return (
     <BlogPostWrapper>
       {helmet || ''}
+      <ReactionsWidget postCreationDate={date} />
       <PageHeader title={title} description={description} />
       <PostContent content={content} />
       {tags && tags.length > 0 && (
@@ -32,12 +34,14 @@ export const BlogPostTemplate = ({ content, contentComponent, description, tags,
 
 const BlogPost = ({
   data: {
-    markdownRemark: { html, frontmatter },
+    markdownRemark: { id, html, frontmatter },
     site,
   },
 }) => (
   <Layout>
     <BlogPostTemplate
+      id={id}
+      date={new Date(frontmatter.date).getTime()}
       content={html}
       contentComponent={HTMLContent}
       description={frontmatter.description}
