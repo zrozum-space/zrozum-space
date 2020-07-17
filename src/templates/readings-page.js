@@ -14,7 +14,11 @@ export const ReadingsPageTemplate = ({ books }) => {
       <Flex flexWrap="wrap">
         {books.map((book) => (
           <Book key={book.name}>
-            <Img fluid={book.image.childImageSharp.fluid} alt={book.name} />
+            {book.image.childImageSharp ? (
+              <Img fluid={book.image.childImageSharp.fluid} alt={book.name} />
+            ) : (
+              <img src={require(`../img/${book.image}`)} alt={book.name} />
+            )}
             <a href={book.link}>{book.name}</a>
           </Book>
         ))}
