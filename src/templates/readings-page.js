@@ -17,7 +17,7 @@ export const ReadingsPageTemplate = ({ books }) => {
             {book.image.childImageSharp ? (
               <Img fluid={book.image.childImageSharp.fluid} alt={book.name} />
             ) : (
-              <img src={require(`../img/${book.image}`)} alt={book.name} />
+              <img className="preview-image" src={require(`../img/${book.image}`)} alt={book.name} />
             )}
             <a href={book.link}>{book.name}</a>
           </Book>
@@ -37,6 +37,10 @@ const Book = styled.article`
   overflow: hidden;
   a {
     margin-top: 1rem;
+  }
+
+  .preview-image {
+    width: 100%;
   }
 `
 
