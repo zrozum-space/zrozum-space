@@ -22,13 +22,13 @@ export const BlogPostTemplate = ({ id, date, content, contentComponent, descript
     <BlogPostWrapper>
       {helmet || ''}
       <ReactionsWidget postCreationDate={date} />
-      <PageHeader title={title} description={description} />
-      <PostContent content={content} />
-      {tags && tags.length > 0 && (
-        <section className="section-with-break">
+      <PageHeader title={title} description={description}>
+        <div style={{ marginBottom: '2.5rem', marginTop: '1rem' }}>
           <TagsList tags={tags} />
-        </section>
-      )}
+        </div>
+      </PageHeader>
+      <PostContent content={content} />
+      <span className="separator"></span>
       <Comments postId={date} postTitle={title} />
     </BlogPostWrapper>
   )
