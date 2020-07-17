@@ -7,6 +7,7 @@ import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import TagsList from '../components/TagsList'
 import ReactionsWidget from '../components/ReactionsWidget'
+import Comments from '../components/Comments'
 
 const BlogPostWrapper = styled.div`
   ul:not(.tags-list) {
@@ -28,6 +29,7 @@ export const BlogPostTemplate = ({ id, date, content, contentComponent, descript
           <TagsList tags={tags} />
         </section>
       )}
+      <Comments postId={date} postTitle={title} />
     </BlogPostWrapper>
   )
 }
