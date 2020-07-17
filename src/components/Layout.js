@@ -3,7 +3,6 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import GlobalStyle from './GlobalStyle'
-import Page from './Page'
 import Sidebar from './Sidebar'
 import useSiteMetadata from './SiteMetadata'
 
@@ -43,7 +42,7 @@ const Layout = ({ children }) => {
       </Helmet>
       <LayoutWrapper>
         <Sidebar />
-        <Page>{children}</Page>
+        {children}
       </LayoutWrapper>
       <GlobalStyle />
     </div>

@@ -39,10 +39,12 @@ body {
   line-height: var(--defaultLineHeight);
 }
 
-section.section-with-break {
-  border-top: 0.1rem solid rgba(0,0,0,0.1);
+span.separator {
+  display: block;
+  width: 100%;
+  height: 0.1rem;
+  background-color: rgba(0,0,0,0.1);
   margin: 3rem 0;
-  padding: 3rem 0;
 }
 
 .reference-button.before {

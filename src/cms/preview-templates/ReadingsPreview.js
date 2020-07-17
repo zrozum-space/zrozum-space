@@ -1,6 +1,6 @@
 import React from 'react'
-import { PlainPageTemplate } from '../../templates/plain-page'
+import { ReadingsPageTemplate } from '../../templates/readings-page'
 
-const ReadingsReview = ({ entry, widgetFor }) => <PlainPageTemplate content={widgetFor('body')} title={entry.getIn(['data', 'title'])} />
+const ReadingsPreview = ({ widgetFor }) => <ReadingsPageTemplate books={widgetFor('books')} />
 
-export default ReadingsReview
+export default ReadingsPreview

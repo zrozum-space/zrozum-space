@@ -34,11 +34,11 @@ collections:
     files:
       - name: 'reading'
         label: 'Readings'
-        file: 'src/pages/readings/recommended-books.json'
+        file: 'static/readings/books.json'
         extension: 'json'
         format: 'json'
-        media_folder: ''
-        public_folder: ''
+        media_folder: 'src/img'
+        public_folder: 'src/img'
         fields:
           - {
               label: 'Books',

@@ -2,11 +2,13 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
+import Comments from '../components/Comments'
 import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/Layout'
+import Page from '../components/Page'
 import PageHeader from '../components/PageHeader'
-import TagsList from '../components/TagsList'
 import ReactionsWidget from '../components/ReactionsWidget'
+import TagsList from '../components/TagsList'
 
 const BlogPostWrapper = styled.div`
   ul:not(.tags-list) {
@@ -14,21 +16,24 @@ const BlogPostWrapper = styled.div`
   }
 `
 
-export const BlogPostTemplate = ({ id, date, content, contentComponent, description, tags, title, helmet }) => {
+export const BlogPostTemplate = ({ id, date, content, contentComponent, description, tags, title, helmet, showReactions }) => {
   const PostContent = contentComponent || Content
 
   return (
-    <BlogPostWrapper>
-      {helmet || ''}
-      <ReactionsWidget postCreationDate={date} />
-      <PageHeader title={title} description={description} />
-      <PostContent content={content} />
-      {tags && tags.length > 0 && (
-        <section className="section-with-break">
-          <TagsList tags={tags} />
-        </section>
-      )}
-    </BlogPostWrapper>
+    <Page>
+      <BlogPostWrapper>
+        {helmet || ''}
+        {showReactions && <ReactionsWidget postCreationDate={date} />}
+        <PageHeader title={title} description={description}>
+          <div style={{ marginBottom: '2.5rem', marginTop: '1rem' }}>
+            <TagsList tags={tags} />
+          </div>
+        </PageHeader>
+        <PostContent content={content} />
+        <span className="separator"></span>
+        <Comments postId={date} postTitle={title} />
+      </BlogPostWrapper>
+    </Page>
   )
 }
 
@@ -54,6 +59,7 @@ const BlogPost = ({
       }
       tags={frontmatter.tags}
       title={frontmatter.title}
+      showReactions
     />
   </Layout>
 )

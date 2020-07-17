@@ -10,6 +10,12 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static/readings`,
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/static/img`,
@@ -35,7 +41,7 @@ module.exports = {
       options: {
         // gfm: true,
         plugins: [
-          { resolve: `gatsby-remark-autolink-headers`, options: {className: 'reference-button'} },
+          { resolve: `gatsby-remark-autolink-headers`, options: { className: 'reference-button' } },
           {
             resolve: 'gatsby-remark-relative-images',
             options: { name: 'uploads' },
@@ -55,6 +61,12 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `zrozum-space`,
       },
     },
     // {
