@@ -79,3 +79,40 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+
+exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+  const { books } = require('./static/readings/books.json')
+
+  books.forEach((book) => {
+    const { name, link, image } = book
+
+    const { name: imageName, ext } = path.parse(image)
+    const absolutePath = path.resolve(__dirname, './src/img/', image)
+    console.log(absolutePath)
+    const imageData = { name: imageName, ext, absolutePath, extension: ext.substring(1) }
+    const imageNode = {
+      ...imageData,
+      id: createNodeId(`my-plugin-image-${imageName}`),
+      children: [],
+      internal: {
+        type: 'BookImage',
+        contentDigest: createContentDigest(imageData),
+      },
+    }
+
+    actions.createNode(imageNode)
+
+    const node = {
+      id: createNodeId(name),
+      name,
+      link,
+      image: imageNode,
+      internal: {
+        type: 'Book',
+        contentDigest: createContentDigest(book),
+      },
+    }
+
+    actions.createNode(node)
+  })
+}

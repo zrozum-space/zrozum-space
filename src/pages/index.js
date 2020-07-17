@@ -1,4 +1,4 @@
-import { StaticQuery } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import BlogList from '../components/BlogList'
 import Layout from '../components/Layout'
