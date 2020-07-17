@@ -2,12 +2,13 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
+import Comments from '../components/Comments'
 import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/Layout'
+import Page from '../components/Page'
 import PageHeader from '../components/PageHeader'
-import TagsList from '../components/TagsList'
 import ReactionsWidget from '../components/ReactionsWidget'
-import Comments from '../components/Comments'
+import TagsList from '../components/TagsList'
 
 const BlogPostWrapper = styled.div`
   ul:not(.tags-list) {
@@ -19,18 +20,20 @@ export const BlogPostTemplate = ({ id, date, content, contentComponent, descript
   const PostContent = contentComponent || Content
 
   return (
-    <BlogPostWrapper>
-      {helmet || ''}
-      <ReactionsWidget postCreationDate={date} />
-      <PageHeader title={title} description={description}>
-        <div style={{ marginBottom: '2.5rem', marginTop: '1rem' }}>
-          <TagsList tags={tags} />
-        </div>
-      </PageHeader>
-      <PostContent content={content} />
-      <span className="separator"></span>
-      <Comments postId={date} postTitle={title} />
-    </BlogPostWrapper>
+    <Page>
+      <BlogPostWrapper>
+        {helmet || ''}
+        <ReactionsWidget postCreationDate={date} />
+        <PageHeader title={title} description={description}>
+          <div style={{ marginBottom: '2.5rem', marginTop: '1rem' }}>
+            <TagsList tags={tags} />
+          </div>
+        </PageHeader>
+        <PostContent content={content} />
+        <span className="separator"></span>
+        <Comments postId={date} postTitle={title} />
+      </BlogPostWrapper>
+    </Page>
   )
 }
 

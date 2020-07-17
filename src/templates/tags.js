@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import BlogList from '../components/BlogList'
+import Page from '../components/Page'
 
 const TagsTemplate = ({
   data: {
@@ -15,9 +16,11 @@ const TagsTemplate = ({
   pageContext: { tag },
 }) => (
   <Layout>
-    <Helmet title={`${tag} | ${title}`} />
-    <PageHeader title={`Artykuły #${tag}`} />
-    <BlogList posts={posts} />
+    <Page>
+      <Helmet title={`${tag} | ${title}`} />
+      <PageHeader title={`Artykuły #${tag}`} />
+      <BlogList posts={posts} />
+    </Page>
   </Layout>
 )
 

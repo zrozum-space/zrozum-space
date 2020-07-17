@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   iframe {
-    width: 100%;
+    width: 100% !important;
   }
 `
 
