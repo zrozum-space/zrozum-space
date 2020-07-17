@@ -22,9 +22,6 @@ const Menu = () => (
       <Link to="/">Artykuły</Link>
     </li>
     <li>
-      <Link to="/about">O stronie</Link>
-    </li>
-    <li>
       <Link to="/readings">Książki</Link>
     </li>
     <li>
