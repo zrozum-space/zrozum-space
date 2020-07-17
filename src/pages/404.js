@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
+import Page from '../components/Page'
 
 const Wrapper = styled.div`
   span {
@@ -12,12 +13,14 @@ const Wrapper = styled.div`
 
 const NotFoundPage = () => (
   <Layout>
-    <Wrapper>
-      <h1>
-        Don't <span>PANIC</span>!{' '}
-      </h1>
-      <p>Nie możemy znaleźć strony, której szukasz! :(</p>
-    </Wrapper>
+    <Page>
+      <Wrapper>
+        <h1>
+          Don't <span>PANIC</span>!{' '}
+        </h1>
+        <p>Nie możemy znaleźć strony, której szukasz! :(</p>
+      </Wrapper>
+    </Page>
   </Layout>
 )
 

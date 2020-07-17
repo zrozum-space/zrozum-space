@@ -1,5 +1,5 @@
 import { Disqus } from 'gatsby-plugin-disqus'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -9,11 +9,11 @@ const Wrapper = styled.div`
 `
 
 const Comments = ({ postId, postTitle }) => {
-  let disqusConfig = {
-    url: `${window.location.href}`,
-    identifier: postId,
-    title: postTitle,
-  }
+  const [disqusConfig, setDisqusConfig] = useState({})
+
+  useEffect(() => {
+    setDisqusConfig({ url: window.location.href, identifier: `${postId}`, title: postTitle })
+  }, [postId, postTitle])
 
   return (
     <Wrapper>
