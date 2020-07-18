@@ -12,6 +12,16 @@ const Wrapper = styled.div`
   overflow-x: hidden;
   counter-reset: firstLevelHeadings;
 
+  ${(props) =>
+    props.preview &&
+    `
+    img {
+      display: table; 
+      max-width: 100%;
+      margin: auto;
+    }
+  `}
+
   @media (max-width: 77.8125em) {
     padding: 0 4rem 5rem 4rem;
     width: 100%;
@@ -125,6 +135,6 @@ const Wrapper = styled.div`
   }
 `
 
-const Page = ({ children }) => <Wrapper>{children}</Wrapper>
+const Page = ({ preview, children }) => <Wrapper preview={preview}>{children}</Wrapper>
 
 export default Page

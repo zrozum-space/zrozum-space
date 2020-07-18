@@ -1,11 +1,11 @@
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import React from 'react'
 import styled from 'styled-components'
 import Flex from '../components/Flex'
 import Layout from '../components/Layout'
 import Page from '../components/Page'
 import PageHeader from '../components/PageHeader'
+import ResponsiveImage from '../components/ResponsiveImage'
 
 export const ReadingsPageTemplate = ({ books }) => {
   return (
@@ -13,12 +13,8 @@ export const ReadingsPageTemplate = ({ books }) => {
       <PageHeader title="Polecane książki" />
       <Flex flexWrap="wrap">
         {books.map((book) => (
-          <Book key={book.name}>
-            {book.image.childImageSharp ? (
-              <Img fluid={book.image.childImageSharp.fluid} alt={book.name} />
-            ) : (
-              <img className="preview-image" src={require(`../img/${book.image}`)} alt={book.name} />
-            )}
+          <Book>
+            <ResponsiveImage image={book.image} alt={book.name} />
             <a href={book.link}>{book.name}</a>
           </Book>
         ))}
@@ -37,10 +33,6 @@ const Book = styled.article`
   overflow: hidden;
   a {
     margin-top: 1rem;
-  }
-
-  .preview-image {
-    width: 100%;
   }
 `
 
