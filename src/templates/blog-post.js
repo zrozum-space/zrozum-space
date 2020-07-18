@@ -16,14 +16,14 @@ const BlogPostWrapper = styled.div`
   }
 `
 
-export const BlogPostTemplate = ({ id, date, content, contentComponent, description, tags, title, helmet, showReactions }) => {
+export const BlogPostTemplate = ({ date, content, contentComponent, description, tags, title, helmet, preview }) => {
   const PostContent = contentComponent || Content
 
   return (
-    <Page>
+    <Page preview={preview}>
       <BlogPostWrapper>
         {helmet || ''}
-        {showReactions && <ReactionsWidget postCreationDate={date} />}
+        {!preview && <ReactionsWidget postCreationDate={date} />}
         <PageHeader title={title} description={description}>
           <div style={{ marginBottom: '2.5rem', marginTop: '1rem' }}>
             <TagsList tags={tags} />
@@ -59,7 +59,6 @@ const BlogPost = ({
       }
       tags={frontmatter.tags}
       title={frontmatter.title}
-      showReactions
     />
   </Layout>
 )
