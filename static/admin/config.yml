@@ -37,8 +37,8 @@ collections:
         file: 'static/readings/books.json'
         extension: 'json'
         format: 'json'
-        media_folder: '/src/img'
-        public_folder: '/src/img'
+        media_folder: 'src/img'
+        public_folder: '/books-covers'
         fields:
           - {
               label: 'Books',
