@@ -84,7 +84,8 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   const { books } = require('./static/readings/books.json')
 
   books.forEach((book) => {
-    const { name, link, image } = book
+    const { name, link } = book
+    const image = book.image.replace('/books-covers', '')
 
     const { name: imageName, ext } = path.parse(image)
     const absolutePath = path.resolve(__dirname, './src/img/', image)
