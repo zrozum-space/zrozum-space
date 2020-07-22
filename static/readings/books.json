@@ -1,14 +1,29 @@
 {
   "books": [
     {
+      "name": "Błękitna kropka. Człowiek i jego przyszłość w kosmosie",
+      "link": "https://www.empik.com/blekitna-kropka-sagan-carl,p1179773056,ksiazka-p",
+      "image": "blekitna-kropka-b-iext52665043.jpg"
+    },
+    {
       "name": "Zapytaj astronautę. Wszystko, co powinieneś wiedzieć o podróżach i życiu w kosmosie",
       "link": "https://www.empik.com/zapytaj-astronaute-wszystko-co-powinienes-wiedziec-o-podrozach-i-zyciu-w-kosmosie-peake-tim,p1183324723,ksiazka-p",
       "image": "zapytaj-astronaute-wszystko-co-powinienes-wiedziec-o-podrozach-i-zyciu-w-kosmosie-b-iext52287206.jpg"
     },
     {
-      "name": "Błękitna kropka",
-      "link": "http://www.dasdasd.com",
-      "image": "blekitna-kropka-b-iext52665043.jpg"
+      "name": "Krótka historia czasu",
+      "link": "https://www.empik.com/krotka-historia-czasu-hawking-stephen,p1113528946,ksiazka-p",
+      "image": "krotka-historia-czasu-b-iext35270710.jpg"
+    },
+    {
+      "name": "Astrofizyka dla zabieganych",
+      "link": "https://www.empik.com/astrofizyka-dla-zabieganych-de-grasse-tyson-neil,p1167250792,ksiazka-p",
+      "image": "astrofizyka-dla-zabieganych-b-iext51696102.jpg"
+    },
+    {
+      "name": "Jakoś wkrótce ",
+      "image": "jakos-wkrotce-b-iext56822398.jpg",
+      "link": "https://www.empik.com/jakos-wkrotce-weinersmith-kelly-weinersmith-zach,p1231509225,ksiazka-p?gclid=CjwKCAjwx9_4BRAHEiwApAt0zkbG6ueWUhVlHvURItZltvFDrQOn5fwmqhYK_DlFwTwvAxBo40mIkBoCu0kQAvD_BwE&gclsrc=aw.ds"
     }
   ]
 }
