@@ -11,7 +11,7 @@ export const ReadingsPageTemplate = ({ books }) => {
   return (
     <Page>
       <PageHeader title="Polecane książki" />
-      <Flex flexWrap="wrap">
+      <Flex flexWrap="wrap" justifyContent="space-between" alignItems="baseline">
         {books.map((book) => (
           <Book>
             <ResponsiveImage image={book.image} alt={book.name} />
@@ -26,14 +26,15 @@ export const ReadingsPageTemplate = ({ books }) => {
 const Book = styled.article`
   display: flex;
   flex-direction: column;
-  width: 20rem;
+  width: 18rem;
   height: 36rem;
   font-size: 1.4rem;
-  margin: 2.5rem;
   overflow: hidden;
   a {
     margin-top: 1rem;
   }
+
+  margin: 1rem 0;
 `
 
 const ReadingsPage = ({
@@ -57,7 +58,7 @@ export const readingsPageQuery = graphql`
         id
         image {
           childImageSharp {
-            fluid(maxWidth: 200) {
+            fluid(maxWidth: 180) {
               ...GatsbyImageSharpFluid
             }
           }
